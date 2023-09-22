@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{%block content%}
+{% load static %}
+<header class="row">
+    <div class="col-md-4">
+<img src="{% static 'Ash.jpg' %}" alt="" width="300" height="300">
+    </div>
+
+    <div class="col-md-8">
+        <h1>Me llamo <strong>Kevin Plaza</strong></h1>
+        <h2>Hola ¿Como estas?</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mi felis, malesuada id rutrum at, laoreet at mi. Nunc convallis auctor eros sed ornare. 
+            Proin volutpat nisl in elit gravida iaculis. Donec vestibulum ex vel enim scelerisque blandit. Fusce viverra nisi non viverra molestie. Phasellus porttitor est quis massa bibendum ullamcorper. 
+            Quisque commodo arcu nec elit gravida rutrum. Pellentesque pellentesque, neque eget posuere pellentesque, 
+            turpis felis commodo arcu, nec sollicitudin enim elit sed magna. Donec in blandit velit, sit amet vehicula dui. Proin varius nibh nisi, id sagittis orci finibus sed.
+            Pellentesque sit amet tellus ultricies, dapibus urna id, venenatis enim. Praesent elementum, libero in mollis vulputate, eros elit ullamcorper risus, quis rhoncus erat lacus non orci. 
+            Morbi consectetur ligula eu quam tempus blandit. Fusce vehicula, turpis id pellentesque cursus, leo felis rutrum ante, et scelerisque purus neque eu erat. Aliquam consequat, nunc in malesuada malesuada, 
+            purus massa egestas libero, ut semper nulla mi nec sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque tristique semper aliquet. Donec feugiat sit amet odio quis ullamcorper. 
+            Donec id purus pellentesque, fringilla turpis ac, sollicitudin arcu. Sed nisi nisl, semper quis ornare a, volutpat a ligula. Aenean porttitor ligula sed aliquam luctus.</p>
+            <a href="{% static 'curriculum.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3">Download CV</a>
+    </div>        
+</header>
+
+<div class="row my-4 text-center">
+    <h3>Mi trabajo</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mi felis, malesuada id rutrum at, laoreet at mi. Nunc convallis auctor eros sed ornare.<p>
+    {% for tare in tarea%}
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-project">
+            <img src="{{tare.image.url}}" alt="{{tare.title}}" class="card-img-top" />
+            <div class="card-body">
+                <h2>{{tare.title}}</h2>
+                    <p>{{tare.description}}</p>
+                   
+                     <br>
+                     {% if tare.url %}
+                        <a href="{{tare.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{tare.url}}</a>
+
+                    {% endif %} 
+            </div>
+        </div>   
+    </div>
+    {% endfor %}
+    {% endblock%}
+</div>
+ 
